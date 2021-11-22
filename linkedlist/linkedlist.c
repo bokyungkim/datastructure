@@ -6,7 +6,7 @@
 /*   By: bokim <bokim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 18:04:16 by bokim             #+#    #+#             */
-/*   Updated: 2021/11/23 00:01:48 by bokim            ###   ########.fr       */
+/*   Updated: 2021/11/23 00:23:21 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,13 +90,13 @@ void displayLinkedList(LinkedList* pList){
 	int i = 0;
 
 	if (pList != NULL) {
-		printf("현재 원소 개수 : %d\n", pList->currentElementCount);
 		for (i = 0; i < pList->currentElementCount; i++) {
-			printf("[%d], %d\n", i, getLLElement(pList, i)->data);
+			printf("[%d] : %d\n", i, getLLElement(pList, i)->data);
 		}
+		printf("--------\n");
 	}
 	else {
-		printf("원소가 없습니다.\n");
+		printf("No elements\n");
 	}
 }
 
