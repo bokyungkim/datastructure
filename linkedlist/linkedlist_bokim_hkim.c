@@ -6,7 +6,7 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 18:04:16 by bokim             #+#    #+#             */
-/*   Updated: 2021/11/23 14:16:49 by bokim            ###   ########.fr       */
+/*   Updated: 2021/11/23 15:28:52 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,15 @@
 인덱스가 없고, 본래 정해져있는 크기가 없다.
 배열과 달리 자료의 크기에 유동성이 있고, 인덱스를 통해 관리되지 않으며
 이전의 자료에 의해서 다음 자료가 유지되는 형태로 자료가 저장 및 관리된다.
+
+장점 -
+자료의 삽입과 삭제가 용이하다.
+리스트 내에서 자료의 이동이 필요하지 않다.
+
+단점 -
+포인터의 사용으로 인해 저장 공간의 낭비가 있다.
+알고리즘이 복잡하다.
+특정 자료의 탐색 시간이 많이 소요된다.
 */
 
 #include "linkedlist.h"
@@ -34,7 +43,6 @@ LinkedList *createLinkedList()
 시간 복잡도 : O(n)
 but, 추가하려는 위치의 이전 노드를 안다면 O(1)로 구현 가능
 이 함수는 이전 노드를 모르기 때문에 탐색까지 필요로 하므로 O(n)
-O(1)의 방법으로 구현하면 배열보다 훨씬 효율적
 */
 int addLLElement(LinkedList *pList, int position, ListNode element)
 {
@@ -172,8 +180,6 @@ int main()
 		removeLLElement(pList, 0);
 		displayLinkedList(pList);
 		removeLLElement(pList, 0);
-		displayLinkedList(pList);
-		deleteLinkedList(pList);
 		displayLinkedList(pList);
 	}
 
