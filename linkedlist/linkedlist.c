@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   linkedlist.c                                       :+:      :+:    :+:   */
+/*   linkedlist_bokim_hkim.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: bokim <bokim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 18:04:16 by bokim             #+#    #+#             */
-/*   Updated: 2021/11/23 15:28:52 by bokim            ###   ########.fr       */
+/*   Updated: 2021/11/25 15:31:53 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,13 +77,14 @@ int removeLLElement(LinkedList *pList, int position)
 {
 	if (position >= 0 && position <= pList->currentElementCount)
 	{
-		ListNode *preNode = &(pList->headerNode);
-		for (int i = 0; i < position; i++)
-		{
-			preNode = preNode->pLink;
-		}
-		free(preNode->pLink);
-		preNode->pLink = preNode->pLink->pLink;
+		ListNode *preNode = 0;
+		if (position == 0)
+			preNode = &(pList->headerNode);
+		else
+			preNode = getLLElement(pList, position - 1);
+		ListNode *node = getLLElement(pList, position);
+		preNode->pLink = node->pLink;
+		free(node);
 		pList->currentElementCount--;
 	}
 	else
@@ -164,7 +165,6 @@ int main()
 	int arrayCount = 0;
 
 	LinkedList *pList = NULL;
-	ListNode *pNode = NULL;
 	ListNode node;
 	pList = createLinkedList();
 
@@ -179,7 +179,7 @@ int main()
 		displayLinkedList(pList);
 		removeLLElement(pList, 0);
 		displayLinkedList(pList);
-		removeLLElement(pList, 0);
+		removeLLElement(pList, 1);
 		displayLinkedList(pList);
 	}
 
