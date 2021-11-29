@@ -6,7 +6,7 @@
 /*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 23:55:36 by bokim             #+#    #+#             */
-/*   Updated: 2021/11/29 10:54:35 by bokim            ###   ########.fr       */
+/*   Updated: 2021/11/29 13:38:07 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@
 LinkedStack *createLinkedStack()
 {
 	LinkedStack *linkedStack = (LinkedStack *)malloc(sizeof(LinkedStack));
+	if (!linkedStack)
+	{
+		fprintf(stderr, "Memory allocation error\n");
+		return (NULL);
+	}
 	linkedStack->currentElementCount = 0;
 	linkedStack->pTopElement = NULL;
 	return (linkedStack);
@@ -24,9 +29,10 @@ LinkedStack *createLinkedStack()
 
 int pushLS(LinkedStack *pStack, StackNode element)
 {
-	if (isLinkedStackFull(pStack)){
-		fprintf(stderr, "Stack is full!\n");
-		exit(1);
+	if (!pStack)
+	{
+		fprintf(stderr, "Stack does not exist\n");
+		return (FALSE);
 	}
 	else
 	{
@@ -39,30 +45,39 @@ int pushLS(LinkedStack *pStack, StackNode element)
 	return (TRUE);
 }
 
-StackNode* popLS(LinkedStack* pStack)
+StackNode *popLS(LinkedStack *pStack)
 {
+	if (!pStack)
+	{
+		fprintf(stderr, "Stack does not exist\n");
+		return (FALSE);
+	}
 	StackNode *preNode = NULL;
 	if (isLinkedStackEmpty(pStack))
 	{
 		fprintf(stderr, "Stack is empty!\n");
-		exit(1);
+		return (FALSE);
 	}
 	else
 	{
 		StackNode *preNode = pStack->pTopElement;
 		pStack->pTopElement = preNode->pLink;
-		// free(preNode);
 		pStack->currentElementCount--;
 		return (preNode);
 	}
 }
 
-StackNode* peekLS(LinkedStack* pStack)
+StackNode *peekLS(LinkedStack *pStack)
 {
+	if (!pStack)
+	{
+		fprintf(stderr, "Stack does not exist\n");
+		return (FALSE);
+	}
 	if (isLinkedStackEmpty(pStack))
 	{
 		fprintf(stderr, "Stack is empty!\n");
-		exit(1);
+		return (FALSE);
 	}
 	else
 		return (pStack->pTopElement);
@@ -70,21 +85,40 @@ StackNode* peekLS(LinkedStack* pStack)
 
 void deleteLinkedStack(LinkedStack *pStack)
 {
-	free(pStack);
-	pStack = NULL;
+	if (!pStack)
+		fprintf(stderr, "Stack does not exist\n");
+	StackNode *node = NULL;
+	for (int i = 0; i < pStack->currentElementCount; i++)
+	{
+		node = popLS(pStack);
+		free(node);
+		node = NULL;
+	}
+	pStack->currentElementCount = 0;
 }
 
-int isLinkedStackFull(LinkedStack* pStack)
+int isLinkedStackFull(LinkedStack *pStack)
 {
-	return (FALSE);	
+	if (!pStack)
+	{
+		fprintf(stderr, "Stack does not exist\n");
+		return (FALSE);
+	}
+	return (FALSE);
 }
 
-int isLinkedStackEmpty(LinkedStack* pStack)
+int isLinkedStackEmpty(LinkedStack *pStack)
 {
+	if (!pStack)
+	{
+		fprintf(stderr, "Stack does not exist\n");
+		return (FALSE);
+	}
 	return (pStack->currentElementCount == 0);
 }
 
-int main(){
+int main()
+{
 	int i = 0;
 	int arrayCount = 0;
 
