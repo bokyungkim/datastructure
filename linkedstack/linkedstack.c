@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   linkedstack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 23:55:36 by bokim             #+#    #+#             */
-/*   Updated: 2021/11/29 00:30:30 by bokim            ###   ########.fr       */
+/*   Updated: 2021/11/29 10:54:35 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,9 @@ int main(){
 		pushLS(pList, node);
 		printf("%c\n", popLS(pList)->data);
 		printf("%c\n", peekLS(pList)->data);
+		printf("%c\n", popLS(pList)->data);
+		printf("%c\n", popLS(pList)->data);
+		printf("%c\n", popLS(pList)->data);
 	}
 
 	return 0;
