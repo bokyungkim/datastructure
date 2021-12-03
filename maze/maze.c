@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   maze.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 10:50:27 by bokim             #+#    #+#             */
-/*   Updated: 2021/12/02 14:55:14 by bokim            ###   ########.fr       */
+/*   Updated: 2021/12/03 13:43:20 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int pushLSMapPosition(LinkedStack *pStack, MapPosition data){
 }
 
 void showPath(LinkedStack *pStack, int mazeArray[HEIGHT][WIDTH]){
-
+	
 }
 
 void printMaze(int mazeArray[HEIGHT][WIDTH]){
