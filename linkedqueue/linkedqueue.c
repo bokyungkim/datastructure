@@ -6,7 +6,7 @@
 /*   By: bokim <bokim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 17:25:21 by bokim             #+#    #+#             */
-/*   Updated: 2021/12/06 18:27:03 by bokim            ###   ########.fr       */
+/*   Updated: 2021/12/06 18:55:14 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ LinkedQueueNode *peekLQ(LinkedQueue* pQueue){
 void deleteLinkedQueue(LinkedQueue* pQueue){
 	if (!pQueue){
 		fprintf(stderr, "Queue does not exist\n");
-		return (FALSE);
+		return ;
 	}
 	LinkedQueueNode *node = NULL;
 	for (int i = 0; i < pQueue->currentElementCount; i++){
@@ -102,4 +102,41 @@ int isLinkedQueueEmpty(LinkedQueue* pQueue){
 		return (FALSE);
 	}
 	return (pQueue->currentElementCount == 0);
+}
+
+void displayLQ(LinkedQueue* pQueue){
+	if (!pQueue){
+		fprintf(stderr, "Queue does not exist\n");
+		return ;
+	}
+	LinkedQueueNode *node = pQueue->pFrontNode;
+	for (int i = 0; i < pQueue->currentElementCount; i++){
+		printf("[%d] %c\n", i, node->data);
+		node = node->pLink;
+	}
+	if (isLinkedQueueEmpty(pQueue))
+		printf("Queue is Empty\n");
+	printf("===========\n");
+}
+
+int	main(void){
+	LinkedQueue* arrayQueue = createLinkedQueue();
+	LinkedQueueNode node1, node2, node3;
+	node1.data = 'a';
+	node2.data = 'b';
+	node3.data = 'c';
+	
+	enqueueLQ(arrayQueue, node1);
+	enqueueLQ(arrayQueue, node2);
+	enqueueLQ(arrayQueue, node3);
+	displayLQ(arrayQueue);
+	dequeueLQ(arrayQueue);
+	displayLQ(arrayQueue);
+	dequeueLQ(arrayQueue);
+	displayLQ(arrayQueue);
+	dequeueLQ(arrayQueue);
+	displayLQ(arrayQueue);
+	enqueueLQ(arrayQueue, node2);
+	displayLQ(arrayQueue);
+	return (0);
 }
