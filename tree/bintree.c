@@ -6,7 +6,7 @@
 /*   By: bokim <bokim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 14:08:34 by bokim             #+#    #+#             */
-/*   Updated: 2021/12/13 15:35:11 by bokim            ###   ########.fr       */
+/*   Updated: 2021/12/13 20:52:07 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,12 @@ BinTree* makeBinTree(BinTreeNode rootNode){
 		fprintf(stderr, "Memory allocation error\n");
 		return (FALSE);
 	}
-	tree->pRootNode = &rootNode;
+	BinTreeNode *new = (BinTreeNode *)malloc(sizeof(BinTreeNode));
+	tree->pRootNode = new;
+	new->data = rootNode.data;
+	new->pLeftChild = NULL;
+	new->pRightChild = NULL;
+	new->visited = FALSE;
 	return (tree);
 }
 
@@ -31,13 +36,31 @@ BinTreeNode* getRootNodeBT(BinTree* pBinTree){
 }
 
 BinTreeNode* insertLeftChildNodeBT(BinTreeNode* pParentNode, BinTreeNode element){
-	pParentNode->pLeftChild = &element;
-	return (pParentNode->pLeftChild);
+	// pParentNode->pLeftChild = &element;
+	if (pParentNode->pLeftChild){
+		return (NULL);
+	}
+	BinTreeNode *new = (BinTreeNode *)malloc(sizeof(BinTreeNode));
+	pParentNode->pLeftChild = new;
+	new->data = element.data;
+	new->pLeftChild = NULL;
+	new->pRightChild = NULL;
+	new->visited = FALSE;
+	return (new);
 }
 
 BinTreeNode* insertRightChildNodeBT(BinTreeNode* pParentNode, BinTreeNode element){
-	pParentNode->pRightChild = &element;
-	return (pParentNode->pRightChild);
+	if (pParentNode->pRightChild){
+		return (NULL);
+	}
+	BinTreeNode *new = (BinTreeNode *)malloc(sizeof(BinTreeNode));
+	pParentNode->pRightChild = new;
+	new->data = element.data;
+	new->pLeftChild = NULL;
+	new->pRightChild = NULL;
+	new->visited = FALSE;
+	// pParentNode->pRightChild = &element;
+	return (new);
 }
 
 BinTreeNode* getLeftChildNodeBT(BinTreeNode* pNode){
@@ -57,40 +80,50 @@ void deleteBinTree(BinTree* pBinTree){
 // 올바른 접근 위해 후위순회 이용
 void deleteBinTreeNode(BinTreeNode* pNode){
 	if (pNode){
-		preorderTraversalBinTree(pNode->pLeftChild);
-		preorderTraversalBinTree(pNode->pRightChild);
+		deleteBinTreeNode(pNode->pLeftChild);
+		deleteBinTreeNode(pNode->pRightChild);
 		free(pNode);
 		pNode = NULL;
-	}	
+	}
 }
 
 int	main(void){
-	BinTreeNode *root = malloc(sizeof(BinTreeNode));
-	root->data = 'R';
-	BinTreeNode *node1 = malloc(sizeof(BinTreeNode));
-	node1->data = '1';
-	BinTreeNode *node2 = malloc(sizeof(BinTreeNode));
-	node2->data = '2';
-	BinTreeNode *node3 = malloc(sizeof(BinTreeNode));
-	node3->data = '3';
-	BinTreeNode *node4 = malloc(sizeof(BinTreeNode));
-	node4->data = '4';
-	BinTreeNode *node5 = malloc(sizeof(BinTreeNode));
-	node5->data = '5';
-	BinTree *tree = makeBinTree(*root);
-	insertLeftChildNodeBT(root, *node1);
-	insertRightChildNodeBT(root, *node2);
-	insertLeftChildNodeBT(node1, *node3);
-	insertRightChildNodeBT(node1, *node4);
-	insertLeftChildNodeBT(node2, *node5);
-	printf("node1's leftChild = %c\n", node1->pLeftChild->data);
-	printf("node1's rightChild = %c\n", node1->pRightChild->data);
-	printf("node2's leftChild = %c\n", node2->pLeftChild->data);
-	// printf("===Preorder===\n");
-	// preorderTraversalBinTree(root);
-	// printf("===Inorder===\n");
-	// inorderTraversalBinTree(root);
-	printf("===Postorder===\n");
-	postorderTraversalBinTree(root);
-	return (0);
+    BinTree *pBinTree;
+    BinTreeNode new;
+    new.data = 'A';
+    pBinTree = makeBinTree(new);
+    new.data = 'B';
+    insertLeftChildNodeBT(pBinTree->pRootNode, new);
+    new.data = 'C';
+    insertRightChildNodeBT(pBinTree->pRootNode, new);
+    new.data = 'D';
+    insertLeftChildNodeBT(pBinTree->pRootNode->pLeftChild, new);
+    new.data = 'E';
+    insertRightChildNodeBT(pBinTree->pRootNode->pLeftChild, new);
+    new.data = 'F';
+    insertLeftChildNodeBT(pBinTree->pRootNode->pRightChild, new);
+    new.data = 'G';
+    insertRightChildNodeBT(pBinTree->pRootNode->pRightChild, new);
+    new.data = 'H';
+    insertLeftChildNodeBT(pBinTree->pRootNode->pLeftChild->pLeftChild, new);
+    new.data = 'I';
+    insertRightChildNodeBT(pBinTree->pRootNode->pLeftChild->pLeftChild, new);
+    new.data = 'J';
+    insertLeftChildNodeBT(pBinTree->pRootNode->pLeftChild->pRightChild, new);
+    new.data = 'K';
+    insertRightChildNodeBT(pBinTree->pRootNode->pRightChild->pLeftChild, new);
+    new.data = 'L';
+    insertLeftChildNodeBT(pBinTree->pRootNode->pRightChild->pRightChild, new);
+    new.data = 'M';
+    insertRightChildNodeBT(pBinTree->pRootNode->pRightChild->pRightChild, new);
+    printf("PREORDER\n");
+    preorderTraversalBinTree(pBinTree->pRootNode);
+    printf("\n");
+    printf("INORDER\n");
+    inorderTraversalBinTree(pBinTree->pRootNode);
+    printf("\n");
+    printf("POSTORDER\n");
+    postorderTraversalBinTree(pBinTree->pRootNode);
+    deleteBinTree(pBinTree);
+    return (0);
 }
