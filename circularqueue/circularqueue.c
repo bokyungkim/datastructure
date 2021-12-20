@@ -6,7 +6,7 @@
 /*   By: bokim <bokim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 15:00:34 by bokim             #+#    #+#             */
-/*   Updated: 2021/12/06 18:18:12 by bokim            ###   ########.fr       */
+/*   Updated: 2021/12/06 20:06:31 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ ArrayQueueNode *dequeueAQ(ArrayQueue* pQueue){
 	}
 	ArrayQueueNode *node = peekAQ(pQueue);
 	pQueue->front = (pQueue->front + 1) % pQueue->maxElementCount;
-	pQueue->front++;
 	pQueue->currentElementCount--;
 	return (node);
 }
@@ -94,7 +93,7 @@ ArrayQueueNode *peekAQ(ArrayQueue* pQueue){
 		fprintf(stderr, "Queue is empty\n");
 		return (FALSE);
 	}
-	return (&(pQueue->pElement[pQueue->front]));
+	return (&(pQueue->pElement[pQueue->front + 1]));
 }
 
 void	displayAQ(ArrayQueue* pQueue){
@@ -102,7 +101,20 @@ void	displayAQ(ArrayQueue* pQueue){
 		fprintf(stderr, "Queue does not exist\n");
 		return ;
 	}
-	for (int i = 0; i < pQueue->currentElementCount; i++){
+	// if (pQueue->front > pQueue->rear) {
+	// 	for (int i = pQueue->front + 1; i < pQueue->maxElementCount; i++){
+	// 		printf("[%d] %c\n", i, pQueue->pElement[i].data);
+	// 	}
+	// 	for (int i = 0; i < pQueue->rear + 1; i++){
+	// 		printf("[%d] %c\n", i, pQueue->pElement[i].data);
+	// 	}
+	// }
+	// else {
+	// 	for (int i = pQueue->front + 1; i < pQueue->rear + 1; i++){
+	// 		printf("[%d] %c\n", i, pQueue->pElement[i].data);
+	// 	}
+	// }
+	for (int i = 0; i < pQueue->maxElementCount; i++){
 		printf("[%d] %c\n", i, pQueue->pElement[i].data);
 	}
 	if (isArrayQueueEmpty(pQueue))

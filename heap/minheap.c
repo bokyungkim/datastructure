@@ -6,12 +6,13 @@
 /*   By: bokim <bokim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 00:17:04 by bokim             #+#    #+#             */
-/*   Updated: 2021/12/15 00:24:39 by bokim            ###   ########.fr       */
+/*   Updated: 2021/12/17 14:40:33 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minheap.h"
 
+// 부모 노드의 값이 자식 노드의 값보다 작은 heap
 MinHeap* makeMinHeap(int rootData){
 	MinHeap *newHeap = (MinHeap *)malloc(sizeof(MinHeap));
 	if (!newHeap)
@@ -77,8 +78,8 @@ int main(){
 	insertMinHeap(heap, 11);
 	insertMinHeap(heap, 12);
 	insertMinHeap(heap, 10);
-	// insertMinHeap(heap, 1);
-	// removeMinHeap(heap);
+	insertMinHeap(heap, 1);
+	removeMinHeap(heap);
 	printf("idx	key\n");
 	for (int i = 1; i <= heap->currentElementCount; i++){
 		printf("[%d]	%d\n", i, heap->pElement[i].key);

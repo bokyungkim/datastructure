@@ -6,7 +6,7 @@
 /*   By: bokim <bokim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 15:00:34 by bokim             #+#    #+#             */
-/*   Updated: 2021/12/06 18:07:29 by bokim            ###   ########.fr       */
+/*   Updated: 2021/12/06 19:39:38 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 #include "arrayqueue.h"
 
 ArrayQueue*	createArrayQueue(int maxElementCount){
+	if (maxElementCount <= 0){
+		return (FALSE);
+	}
 	ArrayQueue *arrayQueue = (ArrayQueue*)malloc(sizeof(ArrayQueue));
 	if (!arrayQueue)
 	{
@@ -30,7 +33,7 @@ ArrayQueue*	createArrayQueue(int maxElementCount){
 void	deleteArrayQueue(ArrayQueue *pQueue){
 	if (!pQueue){
 		fprintf(stderr, "Queue does not exist\n");
-		return (FALSE);
+		return ;
 	}
 	free(pQueue);
 	pQueue = NULL;
@@ -99,7 +102,7 @@ ArrayQueueNode *peekAQ(ArrayQueue* pQueue){
 void	displayAQ(ArrayQueue* pQueue){
 	if (!pQueue){
 		fprintf(stderr, "Queue does not exist\n");
-		return (FALSE);
+		return ;
 	}
 	for (int i = 0; i < pQueue->currentElementCount; i++){
 		printf("[%d] %c\n", i, pQueue->pElement[i].data);
