@@ -6,7 +6,7 @@
 /*   By: bokim <bokim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 17:56:01 by bokim             #+#    #+#             */
-/*   Updated: 2021/12/20 19:30:18 by bokim            ###   ########.fr       */
+/*   Updated: 2021/12/20 19:55:12 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,9 @@ ArrayGraph* createArrayGraph(int maxVertexCount){
 	graph->ppAdjEdge = (int **)calloc(maxVertexCount, sizeof(int *));
 	if (!graph->ppAdjEdge)
 		return (FAIL);
-	for (int i = 0; i < maxVertexCount; i++){
+	for (int i = 0; i < maxVertexCount; i++)
 		graph->ppAdjEdge[i] = (int *)calloc(maxVertexCount, sizeof(int));
-		//할당 실패시 free
-	}
-	if (!(graph->pVertex = (int *)calloc(maxVertexCount, sizeof(int)))){
-		//할당 실패시 free
-	}
+	graph->pVertex = (int *)calloc(maxVertexCount, sizeof(int));
 	return (graph);
 }
 
