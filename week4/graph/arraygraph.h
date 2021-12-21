@@ -54,4 +54,5 @@ void displayArrayGraph(ArrayGraph* pGraph);
 
 #define GRAPH_UNDIRECTED	1
 #define GRAPH_DIRECTED		2
+
 #endif
