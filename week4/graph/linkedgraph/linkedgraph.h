@@ -6,17 +6,14 @@
 /*   By: bokim <bokim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 16:43:25 by bokim             #+#    #+#             */
-/*   Updated: 2021/12/22 14:55:37 by bokim            ###   ########.fr       */
+/*   Updated: 2021/12/22 22:11:30 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef _GRAPH_LIST_
 #define _GRAPH_LIST_
 
-#include "linkedlist.h"
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
+#include "/Users/ellykim/myworkspace/42-datastructure/week1/linkedlist/linkedlist.h"
 #define MAX_PATH 1000
 
 typedef struct LinkedGraphType
@@ -59,6 +56,8 @@ int removeEdgeLG(LinkedGraph* pGraph, int fromVertexID, int toVertexID);
 void displayLinkedGraph(LinkedGraph* pGraph);
 
 int findGraphNodePosition(LinkedList *pList, int vertexID);
+
+int getWeight(LinkedList *pList, int toVertexID);
 
 #endif
 

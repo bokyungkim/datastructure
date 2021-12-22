@@ -6,11 +6,14 @@
 /*   By: bokim <bokim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 16:43:28 by bokim             #+#    #+#             */
-/*   Updated: 2021/12/22 14:49:19 by bokim            ###   ########.fr       */
+/*   Updated: 2021/12/22 21:56:13 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "linkedgraph.h"
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
 
 // 그래프 생성
 LinkedGraph* createLinkedGraph(int maxVertexCount){
@@ -104,7 +107,6 @@ int addEdgewithWeightLG(LinkedGraph* pGraph, int fromVertexID, int toVertexID, i
 	addLLElement(pGraph->ppAdjEdge[fromVertexID], pGraph->ppAdjEdge[fromVertexID]->currentElementCount, tmp);
 	pGraph->currentEdgeCount++;
 	return (SUCCESS);
-	
 }
 
 // 노드의 유효성 점검 : 존재하면 TRUE, 없으면 FALSE
@@ -174,6 +176,22 @@ int findGraphNodePosition(LinkedList *pList, int vertexID){
 		idx++;
 		if (tmp->id == vertexID)
 			return (idx);
+		tmp = tmp->pLink;
+	}
+	return (-1);
+}
+
+int getWeight(LinkedList *pList, int toVertexID){
+	ListNode *tmp;
+	int idx = -1;
+	
+	if (!pList)
+		return (-1);
+	tmp = pList->headerNode.pLink;
+	while (tmp){
+		idx++;
+		if (tmp->id == toVertexID)
+			return (tmp->data);
 		tmp = tmp->pLink;
 	}
 	return (-1);

@@ -1,5 +1,7 @@
 #include "linkedgraph.h"
-#include "linkedstack.h"
+#include "/Users/ellykim/myworkspace/42-datastructure/week1/linkedstack/linkedstack.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 void LGDFS(LinkedGraph* pGraph, LinkedStack* path)
 {
