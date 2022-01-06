@@ -1,4 +1,9 @@
-#include "dijkstra.h"
+#include <stdio.h>
+#include <limits.h> // INT_MAX에 이용
+
+#define VERTEX_NUM 6 // 정점 개수
+#define VISITED	1
+#define NOT_VISITED	0
 
 int minDistance(int dist[VERTEX_NUM], int sptSet[VERTEX_NUM])
 {

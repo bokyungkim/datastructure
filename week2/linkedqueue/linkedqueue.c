@@ -6,7 +6,7 @@
 /*   By: bokim <bokim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 17:25:21 by bokim             #+#    #+#             */
-/*   Updated: 2021/12/06 18:55:14 by bokim            ###   ########.fr       */
+/*   Updated: 2021/12/22 22:10:39 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,24 +119,24 @@ void displayLQ(LinkedQueue* pQueue){
 	printf("===========\n");
 }
 
-int	main(void){
-	LinkedQueue* arrayQueue = createLinkedQueue();
-	LinkedQueueNode node1, node2, node3;
-	node1.data = 'a';
-	node2.data = 'b';
-	node3.data = 'c';
+// int	main(void){
+// 	LinkedQueue* arrayQueue = createLinkedQueue();
+// 	LinkedQueueNode node1, node2, node3;
+// 	node1.data = 'a';
+// 	node2.data = 'b';
+// 	node3.data = 'c';
 	
-	enqueueLQ(arrayQueue, node1);
-	enqueueLQ(arrayQueue, node2);
-	enqueueLQ(arrayQueue, node3);
-	displayLQ(arrayQueue);
-	dequeueLQ(arrayQueue);
-	displayLQ(arrayQueue);
-	dequeueLQ(arrayQueue);
-	displayLQ(arrayQueue);
-	dequeueLQ(arrayQueue);
-	displayLQ(arrayQueue);
-	enqueueLQ(arrayQueue, node2);
-	displayLQ(arrayQueue);
-	return (0);
-}
+// 	enqueueLQ(arrayQueue, node1);
+// 	enqueueLQ(arrayQueue, node2);
+// 	enqueueLQ(arrayQueue, node3);
+// 	displayLQ(arrayQueue);
+// 	dequeueLQ(arrayQueue);
+// 	displayLQ(arrayQueue);
+// 	dequeueLQ(arrayQueue);
+// 	displayLQ(arrayQueue);
+// 	dequeueLQ(arrayQueue);
+// 	displayLQ(arrayQueue);
+// 	enqueueLQ(arrayQueue, node2);
+// 	displayLQ(arrayQueue);
+// 	return (0);
+// }

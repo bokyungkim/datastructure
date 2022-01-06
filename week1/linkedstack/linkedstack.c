@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   linkedstack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bokim <bokim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: bokim <bokim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 23:55:36 by bokim             #+#    #+#             */
-/*   Updated: 2021/11/29 13:38:07 by bokim            ###   ########.fr       */
+/*   Updated: 2021/12/22 22:10:59 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,29 +117,29 @@ int isLinkedStackEmpty(LinkedStack *pStack)
 	return (pStack->currentElementCount == 0);
 }
 
-int main()
-{
-	int i = 0;
-	int arrayCount = 0;
+// int main()
+// {
+// 	int i = 0;
+// 	int arrayCount = 0;
 
-	LinkedStack *pList = NULL;
-	StackNode node;
-	pList = createLinkedStack();
+// 	LinkedStack *pList = NULL;
+// 	StackNode node;
+// 	pList = createLinkedStack();
 
-	if (pList != NULL)
-	{
-		node.data = 'a';
-		pushLS(pList, node);
-		node.data = 'b';
-		pushLS(pList, node);
-		node.data = 'c';
-		pushLS(pList, node);
-		printf("%c\n", popLS(pList)->data);
-		printf("%c\n", peekLS(pList)->data);
-		printf("%c\n", popLS(pList)->data);
-		printf("%c\n", popLS(pList)->data);
-		printf("%c\n", popLS(pList)->data);
-	}
+// 	if (pList != NULL)
+// 	{
+// 		node.data = 'a';
+// 		pushLS(pList, node);
+// 		node.data = 'b';
+// 		pushLS(pList, node);
+// 		node.data = 'c';
+// 		pushLS(pList, node);
+// 		printf("%c\n", popLS(pList)->data);
+// 		printf("%c\n", peekLS(pList)->data);
+// 		printf("%c\n", popLS(pList)->data);
+// 		printf("%c\n", popLS(pList)->data);
+// 		printf("%c\n", popLS(pList)->data);
+// 	}
 
-	return 0;
-}
+// 	return 0;
+// }

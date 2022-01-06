@@ -3,14 +3,15 @@
 
 typedef struct ListNodeType
 {
+	int id;
 	int data;
 	struct ListNodeType* pLink;
 } ListNode;
 
 typedef struct LinkedListType
 {
-	int currentElementCount;	// ÇöÀç ÀúÀåµÈ ¿ø¼ÒÀÇ °³¼ö
-	ListNode headerNode;		// Çì´õ ³ëµå(Header Node)
+	int currentElementCount;	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	ListNode headerNode;		// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½(Header Node)
 } LinkedList;
 
 LinkedList* createLinkedList();

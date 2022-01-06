@@ -6,7 +6,7 @@
 /*   By: bokim <bokim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 17:56:01 by bokim             #+#    #+#             */
-/*   Updated: 2021/12/20 19:55:12 by bokim            ###   ########.fr       */
+/*   Updated: 2021/12/24 10:17:17 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,50 +175,50 @@ void displayArrayGraph(ArrayGraph* pGraph){
 	}
 }
 
-int main(){
-	//Undirected graph (p3 G1)
-	// ArrayGraph *graph1 = createArrayGraph(7);
-	// if (isEmptyAG(graph1))
-	// 	printf("Graph is Empty\n");
-	// addVertexAG(graph1, 0);
-	// addVertexAG(graph1, 1);
-	// addVertexAG(graph1, 2);
-	// addVertexAG(graph1, 3);
-	// addVertexAG(graph1, 4);
-	// addVertexAG(graph1, 5);
-	// addEdgeAG(graph1, 0, 1);
-	// addEdgeAG(graph1, 0, 2);
-	// addEdgeAG(graph1, 1, 2);
-	// addEdgeAG(graph1, 3, 2);
-	// addEdgeAG(graph1, 3, 4);
-	// addEdgeAG(graph1, 3, 5);
-	// addEdgeAG(graph1, 4, 5);
-	// displayArrayGraph(graph1);
-	// printf("\nAfter removing Vertex 0, 1\n");
-	// removeVertexAG(graph1, 0);
-	// removeVertexAG(graph1, 1);
-	// displayArrayGraph(graph1);
+// int main(){
+// 	//Undirected graph (p3 G1)
+// 	// ArrayGraph *graph1 = createArrayGraph(7);
+// 	// if (isEmptyAG(graph1))
+// 	// 	printf("Graph is Empty\n");
+// 	// addVertexAG(graph1, 0);
+// 	// addVertexAG(graph1, 1);
+// 	// addVertexAG(graph1, 2);
+// 	// addVertexAG(graph1, 3);
+// 	// addVertexAG(graph1, 4);
+// 	// addVertexAG(graph1, 5);
+// 	// addEdgeAG(graph1, 0, 1);
+// 	// addEdgeAG(graph1, 0, 2);
+// 	// addEdgeAG(graph1, 1, 2);
+// 	// addEdgeAG(graph1, 3, 2);
+// 	// addEdgeAG(graph1, 3, 4);
+// 	// addEdgeAG(graph1, 3, 5);
+// 	// addEdgeAG(graph1, 4, 5);
+// 	// displayArrayGraph(graph1);
+// 	// printf("\nAfter removing Vertex 0, 1\n");
+// 	// removeVertexAG(graph1, 0);
+// 	// removeVertexAG(graph1, 1);
+// 	// displayArrayGraph(graph1);
 	
-	//Directed & has weight (p3 G4)
-	ArrayGraph *graph2 = createArrayDirectedGraph(7);
-	addVertexAG(graph2, 0);
-	addVertexAG(graph2, 1);
-	addVertexAG(graph2, 2);
-	addVertexAG(graph2, 3);
-	addVertexAG(graph2, 4);
-	addVertexAG(graph2, 5);
-	addEdgewithWeightAG(graph2, 0, 1, 4);
-	addEdgewithWeightAG(graph2, 1, 2, 1);
-	addEdgewithWeightAG(graph2, 2, 0, 2);
-	addEdgewithWeightAG(graph2, 2, 1, 3);
-	addEdgewithWeightAG(graph2, 2, 3, 2);
-	addEdgewithWeightAG(graph2, 3, 2, 1);
-	addEdgewithWeightAG(graph2, 3, 4, 1);
-	addEdgewithWeightAG(graph2, 4, 5, 1);
-	addEdgewithWeightAG(graph2, 5, 3, 2);
-	displayArrayGraph(graph2);
-	printf("\nAfter removing Vertex 0, 1\n");
-	removeVertexAG(graph2, 0);
-	removeVertexAG(graph2, 1);
-	displayArrayGraph(graph2);
-}
+// 	//Directed & has weight (p3 G4)
+// 	ArrayGraph *graph2 = createArrayDirectedGraph(7);
+// 	addVertexAG(graph2, 0);
+// 	addVertexAG(graph2, 1);
+// 	addVertexAG(graph2, 2);
+// 	addVertexAG(graph2, 3);
+// 	addVertexAG(graph2, 4);
+// 	addVertexAG(graph2, 5);
+// 	addEdgewithWeightAG(graph2, 0, 1, 4);
+// 	addEdgewithWeightAG(graph2, 1, 2, 1);
+// 	addEdgewithWeightAG(graph2, 2, 0, 2);
+// 	addEdgewithWeightAG(graph2, 2, 1, 3);
+// 	addEdgewithWeightAG(graph2, 2, 3, 2);
+// 	addEdgewithWeightAG(graph2, 3, 2, 1);
+// 	addEdgewithWeightAG(graph2, 3, 4, 1);
+// 	addEdgewithWeightAG(graph2, 4, 5, 1);
+// 	addEdgewithWeightAG(graph2, 5, 3, 2);
+// 	displayArrayGraph(graph2);
+// 	printf("\nAfter removing Vertex 0, 1\n");
+// 	removeVertexAG(graph2, 0);
+// 	removeVertexAG(graph2, 1);
+// 	displayArrayGraph(graph2);
+// }

@@ -6,7 +6,7 @@
 /*   By: bokim <bokim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 16:43:25 by bokim             #+#    #+#             */
-/*   Updated: 2021/12/22 22:11:30 by bokim            ###   ########.fr       */
+/*   Updated: 2021/12/24 10:36:15 by bokim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define _GRAPH_LIST_
 
 #include "/Users/ellykim/myworkspace/42-datastructure/week1/linkedlist/linkedlist.h"
+
 #define MAX_PATH 1000
 
 typedef struct LinkedGraphType
